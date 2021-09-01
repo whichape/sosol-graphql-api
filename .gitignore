@@ -1,0 +1,10 @@
+node_modules/
+.env
+.env.dev
+.env.test
+.env.prod
+prisma/migrations
+.DS_Store
+.pgdata
+.localstack
+.terraform

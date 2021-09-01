@@ -1,0 +1,6 @@
+type Mutation {
+  loginRegister(
+    publicAddress: String!
+    signature: String
+  ): AuthPayload!
+}

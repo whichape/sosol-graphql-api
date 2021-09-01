@@ -1,0 +1,3 @@
+type Mutation {
+  address(publicAddress: String!): Nonce!
+}

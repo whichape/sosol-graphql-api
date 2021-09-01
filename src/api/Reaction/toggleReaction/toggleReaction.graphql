@@ -1,0 +1,3 @@
+type Mutation {
+  toggleReaction(id: ID!, emojiId: String!, skin: Int): Boolean!
+}

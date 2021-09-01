@@ -1,0 +1,8 @@
+type Mutation {
+  newTweet(
+    text: String! 
+    files: [String!]
+    tags: [String!]
+    mentions: [String!]
+  ): Tweet!
+}

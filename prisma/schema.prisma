@@ -1,0 +1,116 @@
+datasource pg {
+  provider = "postgres"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+  binaryTargets = ["native", "linux-musl"]
+}
+
+model User {
+  id            String     @id @default(cuid())
+  publicAddress String     @unique
+  nonce         String     @unique @default(cuid())
+  handle        String     @unique
+  email         String?    @unique
+  password      String?
+  firstname     String?
+  lastname      String?
+  avatar        String?    @default("")
+  coverPhoto    String?    @default("https://res.cloudinary.com/tylerdurden/image/upload/v1617334073/random/Rectangle_2_mbyujf.png")
+  bio           String?    @default("")
+  dob           String?    @default("")
+  location      String?    @default("")
+  website       String?    @default("")
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+  comments      Comment[]  @relation(name: "CommentsByUser")
+  files         File[]     @relation(name: "FilesByUser")
+  followers     User[]     @relation(name: "FollowRelation")
+  following     User[]     @relation(name: "FollowRelation")
+  reactions     Reaction[] @relation(name: "ReactionsByUser")
+  mentions      Mention[]  @relation(name: "MentionsForUser")
+  retweets      Retweet[]  @relation(name: "RetweetsByUser")
+  tweets        Tweet[]    @relation(name: "TweetsByUser")
+}
+
+model Tweet {
+  id        String     @id @default(cuid())
+  text      String
+  tags      String[]
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  tagId     String?
+  userId    String?
+  user      User?      @relation(name: "TweetsByUser", fields: [userId], references: [id])
+  comments  Comment[]  @relation(name: "CommentsForTweets")
+  files     File[]     @relation(name: "FilesForTweets")
+  reactions Reaction[] @relation(name: "ReactionsForTweets")
+  mentions  Mention[]  @relation(name: "MentionsForTweets")
+  retweets  Retweet[]  @relation(name: "RetweetsOfTweet")
+  Tag       Tag?       @relation(fields: [tagId], references: [id])
+}
+
+model Comment {
+  id        String   @id @default(cuid())
+  text      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  tweetId   String?
+  userId    String?
+  tweet     Tweet?   @relation(name: "CommentsForTweets", fields: [tweetId], references: [id])
+  user      User?    @relation(name: "CommentsByUser", fields: [userId], references: [id])
+}
+
+model Reaction {
+  id        String   @id @default(cuid())
+  emojiId   String
+  skin      Int?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  tweetId   String?
+  userId    String?
+  user      User?    @relation("ReactionsByUser", fields: [userId], references: [id])
+  tweet     Tweet?   @relation("ReactionsForTweets", fields: [tweetId], references: [id])
+}
+
+model File {
+  id        String   @id @default(cuid())
+  url       String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  tweetId   String?
+  userId    String?
+  tweet     Tweet?   @relation(name: "FilesForTweets", fields: [tweetId], references: [id])
+  user      User?    @relation(name: "FilesByUser", fields: [userId], references: [id])
+}
+
+model Tag {
+  id        String   @id @default(cuid())
+  text      String
+  tweets    Tweet[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Mention {
+  id        String   @id @default(cuid())
+  status    String   @default("new")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  tweetId   String?
+  userId    String?
+  tweet     Tweet?   @relation(name: "MentionsForTweets", fields: [tweetId], references: [id])
+  user      User?    @relation(name: "MentionsForUser", fields: [userId], references: [id])
+}
+
+model Retweet {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  tweetId   String?
+  userId    String?
+  tweet     Tweet?   @relation(name: "RetweetsOfTweet", fields: [tweetId], references: [id])
+  user      User?    @relation(name: "RetweetsByUser", fields: [userId], references: [id])
+}
