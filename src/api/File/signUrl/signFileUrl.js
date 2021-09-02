@@ -1,9 +1,9 @@
 const { getSignedS3URL } = require("../../../utils");
 
 module.exports = {
-  Query: {
+  Mutation: {
     signFileUrl: async (parent, args, ctx) => {
-      return getSignedS3URL({ key: args.file});
+      return getSignedS3URL({ file: args.file, type: args.type });
     },
   },
 };

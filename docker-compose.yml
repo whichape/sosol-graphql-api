@@ -9,7 +9,6 @@ services:
       - NODE_ENV=development
     depends_on:
       - postgres
-      - localstack
     volumes:
       - .:/app/
       - /app/node_modules
@@ -29,18 +28,6 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: sosol_dev
     restart: unless-stopped
-
-  localstack:
-      image: localstack/localstack:latest
-      ports:
-        - '4566-4583:4566-4583'
-      environment:
-        - DEFAULT_REGION=us-west-2
-        - EDGE_PORT=4566
-        - SERVICES=s3
-      volumes:
-        - .localstack:/tmp/localstack
-        - "/var/run/docker.sock:/var/run/docker.sock"
 
 networks:
   default:

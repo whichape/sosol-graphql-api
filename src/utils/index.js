@@ -13,7 +13,7 @@ exports.getUserId = (ctx) => {
   throw Error("You need to be authenticated.");
 };
 
-exports.getSignedS3URL = ({ key, expires }) => {
+exports.getSignedS3URL = ({ file, type, expires }) => {
   AWS.config = new AWS.Config({
     accessKeyId: process.env.AWS_ACCESS_KEY_ID,
     secretAccessKey: process.env.AWS_SECRET_KEY,
@@ -23,10 +23,13 @@ exports.getSignedS3URL = ({ key, expires }) => {
 
   const s3 = new AWS.S3();
 
-  const signedUrl = s3.getSignedUrl("getObject", {
-    Key: key,
+  const signedUrl = s3.getSignedUrl("putObject", {
+    ACL: 'public-read',
+    Key: file,
     Bucket: process.env.AWS_BUCKET_NAME,
-    Expires: expires || 600, // S3 default is 900 seconds (15 minutes)
+    Expires: expires || 600, // S3 default is 900 seconds (15 minutes)\
+    ContentType: type,
+    ContentDisposition: 'inline',
   });
 
   return signedUrl;
