@@ -6,7 +6,9 @@ module.exports = {
       if (!userId) throw Error("You need to be authenticated");
 
       // 2.return the user
-      const { password, ...user } = await ctx.prisma.user.findUnique({ where: {id: userId} });
+      const { password, ...user } = await ctx.prisma.user.findUnique({
+        where: { id: userId },
+      });
       return user;
     },
   },

@@ -3,10 +3,8 @@ const AWS = require("aws-sdk");
 
 exports.getUserId = (ctx) => {
   const token = ctx.request.get("Authorization");
-  // const token = true;
   if (token) {
     const { userId } = jwt.verify(token, process.env.JWT_SECRET);
-    // const userId = 'user111111111111111111';
     return userId;
   }
 
@@ -24,13 +22,13 @@ exports.getSignedS3URL = ({ file, type, expires }) => {
   const s3 = new AWS.S3();
 
   const signedUrl = s3.getSignedUrl("putObject", {
-    ACL: 'public-read',
+    ACL: "public-read",
     Key: file,
     Bucket: process.env.AWS_BUCKET_NAME,
     Expires: expires || 600, // S3 default is 900 seconds (15 minutes)\
     ContentType: type,
-    ContentDisposition: 'inline',
+    ContentDisposition: "inline",
   });
 
   return signedUrl;
-}
+};
