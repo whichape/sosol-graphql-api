@@ -15,8 +15,8 @@ module.exports = {
           retweets: true,
           following: true,
           followers: true,
-          // comments: true,
-          // reactions: true,
+          comments: true,
+          reactions: true,
           files: true
         }
       });
