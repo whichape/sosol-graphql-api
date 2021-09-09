@@ -28,7 +28,7 @@ module.exports = {
       });
 
       if (retweetExists) {
-        await ctx.prisma.retweet.delete({ where: { id: retweetExists[0].id } });
+        await ctx.prisma.retweet.delete({ where: { id: retweetExists.id } });
         return true;
       } else {
         await ctx.prisma.retweet.create({
