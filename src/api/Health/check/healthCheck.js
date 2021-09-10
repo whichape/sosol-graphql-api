@@ -1,5 +1,5 @@
 module.exports = {
   Query: {
-    healthCheck: async (parent, args, ctx) => 'OK'
+    healthCheck: async (parent, args, ctx) => `OK @ ${new Date()}`
   },
 };
