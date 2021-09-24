@@ -36,20 +36,20 @@
             "value":"${POSTGRES_DATABASE}"
          },
          {
-            "name":"sosol_APP",
-            "value":"${sosol_APP}"
+            "name":"SOSOL_APP",
+            "value":"${SOSOL_APP}"
          },
          {
-            "name":"sosol_ENV",
-            "value":"${sosol_ENV}"
+            "name":"SOSOL_ENV",
+            "value":"${SOSOL_ENV}"
          },
          {
             "name":"APP_HOME",
-            "value":"${sosol_APP_HOME}"
+            "value":"${SOSOL_APP_HOME}"
          },
          {
             "name":"APP_PORT",
-            "value":"${sosol_APP_PORT}"
+            "value":"${SOSOL_APP_PORT}"
          },
          {
             "name":"APP_SECRET_KEY",
