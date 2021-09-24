@@ -12,8 +12,9 @@
     "aws:s3:cors": "aws s3api put-bucket-cors --bucket sosol-dev --cors-configuration file://script/aws-cors.json",
     "dev": "nodemon -e js,graphql src/server.js",
     "docker:bash": "docker exec -it backend_sosol-api_1 sh",
-    "docker:build:dev": "bash ./script/docker-dev.sh",
+    "docker:build:dev": "bash ./script/docker_dev.sh",
     "docker:prisma": "docker exec -it backend_sosol-api_1 npm run prisma:dev",
+    "tf:pre": "bash ./script/tf_pre_commit.sh",
     "prisma:dev": "npx prisma migrate dev --name init",
     "prisma:gen": "npx prisma generate",
     "start": "node src/server.js"
