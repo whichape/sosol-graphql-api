@@ -36,7 +36,7 @@ variable "rds_instance_type" {
 # Change database-1 to postgres
 variable "rds_identifier" {
   description = "db identifier"
-  default     = "database-1"
+  default     = "sosol-database-1"
 }
 variable "rds_storage_type" {
   description = "db storage type"
@@ -53,19 +53,21 @@ variable "rds_engine" {
 }
 variable "rds_engine_version" {
   description = "db engine version"
-  default     = "12"
+  default     = "13.1"
 }
 variable "rds_database_name" {
   description = "db worker name"
-  default     = "postgresdb"
+  default     = "sosolpostgresdb"
 }
 variable "rds_username" {
-  description = "db username"
-  default     = "postgres"
+  description = "Database administrator username"
+  type        = string
+  sensitive   = true
 }
 variable "rds_password" {
-  description = "db password"
-  default     = "admin123"
+  description = "Database administrator password"
+  type        = string
+  sensitive   = true
 }
 variable "rds_final_snapshot_identifier" {
   description = "db final snapshot identifier"
