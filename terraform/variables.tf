@@ -22,7 +22,8 @@ variable "availability_zones" {
   description = "availability zone to create subnet"
   default = [
     "us-west-2a",
-  "us-west-2b"]
+    "us-west-2b"
+  ]
 }
 variable "postgres_db_port" {
   description = "Port exposed by the RDS instance"

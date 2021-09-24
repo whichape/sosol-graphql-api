@@ -25,9 +25,9 @@ resource "aws_db_instance" "rds_instance" {
   # deletion_protection = false
   # enabled_cloudwatch_logs_exports = ["postgresql", "upgrade"]
   ## disable backups to create DB faster
-  # maintenance_window = "Mon:00:00-Mon:03:00"
-  # backup_window      = "03:00-06:00"
-  # backup_retention_period = 0
+  # maintenance_window = "sun:09:00-sun:10:00"
+  # backup_window      = "08:00-09:00"
+  # backup_retention_period = 35
 
   tags = {
     Name = "sosol-postgres-rds"
