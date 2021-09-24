@@ -79,7 +79,7 @@ variable "sosol_app_port" {
 }
 variable "sosol_app_image" {
   description = "Dockerhub image for sosol-app"
-  default     = "docker.io/****/terraform-sosol-postgres-docker:latest"
+  default     = "docker.io/sosol/terraform-sosol-backend:latest"
 }
 variable "sosol_app" {
   description = "sosol APP variable"
