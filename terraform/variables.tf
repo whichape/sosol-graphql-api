@@ -57,7 +57,7 @@ variable "rds_engine_version" {
 }
 variable "rds_database_name" {
   description = "db worker name"
-  default     = "sosolpostgresdb"
+  default     = "sosol_postgresdb_prod"
 }
 variable "rds_username" {
   description = "Database administrator username"
