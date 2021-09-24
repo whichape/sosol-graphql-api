@@ -87,7 +87,7 @@ variable "sosol_app" {
 }
 variable "sosol_env" {
   description = "sosol ENV variable"
-  default     = "dev"
+  default     = "production"
 }
 variable "sosol_app_home" {
   description = "APP HOME variable"
@@ -107,4 +107,18 @@ variable "cloudwatch_group" {
 variable "health_check_path" {
   description = "Http path for task health check"
   default     = "/health"
+}
+variable "aws_key" {
+  description = "AWS key for sosol"
+  type        = string
+  sensitive   = true
+}
+variable "aws_secret_key" {
+  description = "AWS secret key for sosol"
+  type        = string
+  sensitive   = true
+}
+variable "aws_bucket" {
+  description = "S3 bucket for content"
+  default     = "sosol-prod"
 }

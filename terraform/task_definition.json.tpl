@@ -5,8 +5,8 @@
       "image":"${REPOSITORY_URL}",
       "portMappings":[
          {
-            "containerPort":7777,
-            "hostPort":7777,
+            "containerPort":"${PORT}",
+            "hostPort":"${PORT}",
             "protocol":"tcp"
          }
       ],
@@ -14,7 +14,7 @@
           "logDriver": "awslogs",
           "options": {
             "awslogs-group": "${CLOUDWATCH_GROUP}",
-            "awslogs-region": "${REGION}",
+            "awslogs-region": "${AWS_REGION}",
             "awslogs-stream-prefix": "ecs"
           }
         },
@@ -40,8 +40,8 @@
             "value":"${SOSOL_APP}"
          },
          {
-            "name":"SOSOL_ENV",
-            "value":"${SOSOL_ENV}"
+            "name":"NODE_ENV",
+            "value":"${NODE_ENV}"
          },
          {
             "name":"APP_HOME",
@@ -52,8 +52,8 @@
             "value":"${SOSOL_APP_PORT}"
          },
          {
-            "name":"APP_SECRET_KEY",
-            "value":"${APP_SECRET_KEY}"
+            "name":"JWT_SECRET",
+            "value":"${JWT_SECRET}"
          }
       ]
    }

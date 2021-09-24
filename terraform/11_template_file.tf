@@ -7,12 +7,16 @@ data "template_file" "task_definition_template" {
     POSTGRES_ENDPOINT = aws_db_instance.rds_instance.endpoint
     POSTGRES_DATABASE = aws_db_instance.rds_instance.name
     SOSOL_APP         = var.sosol_app
-    SOSOL_ENV         = var.sosol_env
+    NODE_ENV          = var.sosol_env
     SOSOL_APP_HOME    = var.sosol_app_home
     SOSOL_APP_PORT    = var.sosol_app_port
-    APP_SECRET_KEY    = replace(random_string.sosol-secret-key.result, "\"", "")
-    REGION            = var.region
+    JWT_SECRET        = replace(random_string.sosol-secret-key.result, "\"", "")
+    AWS_REGION        = var.region
     CLOUDWATCH_GROUP  = aws_cloudwatch_log_group.logs.name
-
+    # DATABASE_URL=postgresql://postgres:postgres@postgres:5432/sosol_dev?schema=public
+    PORT              = 7777
+    AWS_ACCESS_KEY_ID = var.aws_key
+    AWS_SECRET_KEY    = var.aws_secret_key
+    AWS_BUCKET_NAME   = var.aws_bucket
   }
 }
