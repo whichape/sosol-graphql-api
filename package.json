@@ -7,19 +7,20 @@
     "node": ">=16"
   },
   "scripts": {
+    "aws:s3:cors": "aws s3api put-bucket-cors --bucket sosol-dev --cors-configuration file://script/aws-cors.json",
     "aws:s3:ls": "aws s3api list-buckets",
     "aws:s3:mb": "aws s3 mb s3://sosol-dev",
-    "aws:s3:cors": "aws s3api put-bucket-cors --bucket sosol-dev --cors-configuration file://script/aws-cors.json",
     "dev": "nodemon -e js,graphql src/server.js",
     "docker:bash": "docker exec -it backend_sosol-api_1 sh",
+    "docker:build": "bash ./script/docker_deploy.sh",
     "docker:build:dev": "bash ./script/docker_dev.sh",
     "docker:prisma": "docker exec -it backend_sosol-api_1 npm run prisma:dev",
-    "tf:pre": "bash ./script/tf_pre_commit.sh",
-    "tf:plan": " cd terraform && terraform plan -var-file='.tfvars'",
-    "tf:apply": " cd terraform && terraform apply -var-file='.tfvars'",
     "prisma:dev": "npx prisma migrate dev --name init",
     "prisma:gen": "npx prisma generate",
-    "start": "node src/server.js"
+    "start": "node src/server.js",
+    "tf:apply": " cd terraform && terraform apply -var-file='.tfvars'",
+    "tf:plan": " cd terraform && terraform plan -var-file='.tfvars'",
+    "tf:pre": "bash ./script/tf_pre_commit.sh"
   },
   "author": "harkl",
   "license": "Apache-2.0",
