@@ -75,7 +75,7 @@ variable "rds_final_snapshot_identifier" {
 }
 variable "sosol_app_port" {
   description = "Port exposed by the sosol application"
-  default     = 3000
+  default     = 7777
 }
 variable "sosol_app_image" {
   description = "Dockerhub image for sosol-app"
