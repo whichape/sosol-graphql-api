@@ -3,7 +3,7 @@ output "postgres_endpoint" {
 }
 
 output "postgres_database_url" {
-  vale = "postgresql://${aws_db_instance.rds_instance.username}:${aws_db_instance.rds_instance.password}@${aws_db_instance.rds_instance.endpoint}:${aws_db_instance.rds_instance.port}/${aws_db_instance.rds_instance.name}?schema=public"
+  value = "postgresql://${aws_db_instance.rds_instance.username}:${aws_db_instance.rds_instance.password}@${aws_db_instance.rds_instance.endpoint}:${aws_db_instance.rds_instance.port}/${aws_db_instance.rds_instance.name}?schema=public"
 }
 
 output "alb_dns_name" {
