@@ -1,0 +1,11 @@
+node_modules
+npm-debug.log
+.git
+*Dockerfile*
+*docker-compose*
+.env*
+terraform
+.terraform*
+.pgdata
+.aws
+.gitignore
