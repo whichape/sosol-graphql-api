@@ -7,5 +7,5 @@ resource "aws_ecs_task_definition" "task_definition" {
   network_mode             = "awsvpc"
   cpu                      = 256
   memory                   = 512
-  container_definitions = data.template_file.task_definition_template.rendered
+  container_definitions    = data.template_file.task_definition_template.rendered
 }
