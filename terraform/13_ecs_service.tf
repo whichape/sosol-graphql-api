@@ -8,7 +8,7 @@ resource "aws_ecs_service" "sosol-service" {
   launch_type                        = "FARGATE"
   scheduling_strategy                = "REPLICA"
   enable_ecs_managed_tags            = true
-
+  enable_execute_command             = true
 
   network_configuration {
     security_groups = [
