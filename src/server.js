@@ -11,7 +11,7 @@ const server = new GraphQLServer({
   context: (request) => ({ ...request, prisma, getUserId }),
 });
 
-const PORT = process.env.PORT || 7777;
+const PORT = process.env.SOSOL_PORT || 7777;
 
 server.start(
   {
