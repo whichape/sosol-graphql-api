@@ -1,3 +1,5 @@
+# Set env to prod
+cp .env.prod .env
 
 # Docker Build
 docker build --file Dockerfile --tag "sosol/terraform-sosol-backend:test" .
@@ -10,3 +12,6 @@ docker tag "sosol/terraform-sosol-backend:test" "sosol/terraform-sosol-backend:l
 
 # Docker push
 docker push "sosol/terraform-sosol-backend:latest"
+
+# Set env back to dev
+cp .env.dev .env
