@@ -12,9 +12,7 @@ RUN npm install
 
 COPY . .
 
-RUN ls -la /app/node_modules/graphql-yoga
+RUN npm run prisma:gen
 
 EXPOSE 7777
-
-RUN npm run prisma:gen
 CMD [ "node", "src/server.js" ]
