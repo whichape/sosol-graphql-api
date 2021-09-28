@@ -5,6 +5,7 @@ ENV NODE_ENV=${NODE_ENV}
 
 RUN mkdir -p /app
 WORKDIR /app
+
 COPY ["package.json", "package-lock.json*", "./"]
 
 RUN npm -v
