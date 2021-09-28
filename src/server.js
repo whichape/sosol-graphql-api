@@ -9,7 +9,7 @@ const prisma = new PrismaClient();
 
 const server = new ApolloServer({
   schema,
-  context: (request) => ({ ...request, prisma, getUserId }),
+  context: (req) => ({ ...req, prisma, getUserId }),
 });
 
 const PORT = process.env.SOSOL_PORT || 7777;

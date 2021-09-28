@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 const AWS = require("aws-sdk");
 
 exports.getUserId = (ctx) => {
-  const token = ctx.request.get("Authorization");
+  const token = ctx.req.headers.authorization;
   if (token) {
     const { userId } = jwt.verify(token, process.env.JWT_SECRET);
     return userId;
