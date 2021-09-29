@@ -126,9 +126,13 @@ variable "cloudflare_email" {
   description = "The email associated with the Cloudflare account"
   sensitive   = true
 }
-
 variable "cloudflare_api_token" {
   type        = string
   description = "The Cloudflare API Token"
+  sensitive   = true
+}
+variable "cloudflare_api_key" {
+  type        = string
+  description = "The Cloudflare API Key"
   sensitive   = true
 }

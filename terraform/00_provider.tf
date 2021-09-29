@@ -19,6 +19,7 @@ provider "aws" {
 provider "cloudflare" {
   email     = var.cloudflare_email
   api_token = var.cloudflare_api_token
+  # api_key = var.cloudflare_api_key
 }
 
 # random string for sosol secret-key env variable
