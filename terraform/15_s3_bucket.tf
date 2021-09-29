@@ -47,11 +47,11 @@ resource "aws_s3_bucket_policy" "public_read" {
   })
 }
 
-# resource "aws_s3_bucket_object" "webpage" {
-#   key          = "index.html"
-#   bucket       = aws_s3_bucket.site.id
-#   source       = "./website/index.html"
-#   content_type = "text/html"
+resource "aws_s3_bucket_object" "webpage" {
+  key          = "index.html"
+  bucket       = aws_s3_bucket.my.id
+  source       = "./website/index.html"
+  content_type = "text/html"
 
-#   etag = filemd5("./website/index.html")
-# }
+  etag = filemd5("./website/index.html")
+}
