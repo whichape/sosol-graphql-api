@@ -93,14 +93,8 @@ variable "sosol_app_home" {
   description = "APP HOME variable"
   default     = "/usr/src/app/"
 }
-variable "ecs_task_definition_name" {
-  description = "Task definition name"
-  type        = string
-  default     = "sosol-app"
-}
-
-variable "cloudwatch_group" {
-  description = "CloudWatch group name"
+variable "sosol_app_name" {
+  description = "Sosol app name"
   type        = string
   default     = "sosol-app"
 }
@@ -121,4 +115,20 @@ variable "aws_secret_key" {
 variable "aws_bucket" {
   description = "S3 bucket for content"
   default     = "sosol-prod"
+}
+variable "domain" {
+  type        = string
+  description = "The domain name to use for the sosol static site"
+  default     = "my.sosol.app"
+}
+variable "cloudflare_email" {
+  type        = string
+  description = "The email associated with the Cloudflare account"
+  sensitive   = true
+}
+
+variable "cloudflare_api_token" {
+  type        = string
+  description = "The Cloudflare API Token"
+  sensitive   = true
 }

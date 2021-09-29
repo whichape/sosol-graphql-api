@@ -19,6 +19,7 @@
     "docker:prisma": "docker exec -it backend_sosol-api_1 npm run prisma:dev",
     "prisma:dev": "npx prisma migrate dev --name init",
     "prisma:gen": "npx prisma generate",
+    "tf:init": " cd terraform && terraform init",
     "tf:apply": " cd terraform && terraform apply -var-file='.tfvars'",
     "tf:plan": " cd terraform && terraform plan -var-file='.tfvars'",
     "tf:pre": "bash ./script/tf_pre_commit.sh"

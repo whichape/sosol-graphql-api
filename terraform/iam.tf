@@ -1,5 +1,5 @@
 resource "aws_iam_role" "ecs_task_execution_role" {
-  name = "${var.ecs_task_definition_name}-ecsTaskExecutionRole"
+  name = "${var.sosol_app_name}-ecsTaskExecutionRole"
 
   assume_role_policy = <<EOF
 {
@@ -24,7 +24,7 @@ resource "aws_iam_role_policy_attachment" "ecs-task-execution-role-policy-attach
 }
 
 resource "aws_iam_role" "ecs_task_role" {
-  name = "${var.ecs_task_definition_name}-ecsTaskRole"
+  name = "${var.sosol_app_name}-ecsTaskRole"
 
   assume_role_policy = <<EOF
 {
@@ -45,7 +45,7 @@ EOF
 
 
 resource "aws_iam_policy" "cloudwatch" {
-  name        = "${var.ecs_task_definition_name}-task-policy-cloudwatch"
+  name        = "${var.sosol_app_name}-task-policy-cloudwatch"
   description = "Policy that allows access to cloudwatch"
 
   policy = <<EOF
