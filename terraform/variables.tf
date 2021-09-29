@@ -94,13 +94,13 @@ variable "sosol_app_home" {
   default     = "/usr/src/app/"
 }
 variable "ecs_task_definition_name" {
-  description = "Task definition name."
+  description = "Task definition name"
   type        = string
   default     = "sosol-app"
 }
 
 variable "cloudwatch_group" {
-  description = "CloudWatch group name."
+  description = "CloudWatch group name"
   type        = string
   default     = "sosol-app"
 }
