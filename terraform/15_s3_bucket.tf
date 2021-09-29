@@ -1,5 +1,5 @@
-resource "aws_s3_bucket" "site" {
-  bucket = var.domain
+resource "aws_s3_bucket" "my" {
+  bucket = "my.${var.domain}"
   acl    = "public-read"
 
   website {
@@ -8,18 +8,28 @@ resource "aws_s3_bucket" "site" {
   }
 }
 
-resource "aws_s3_bucket" "www" {
-  bucket = "www.${var.domain}"
-  acl    = "private"
-  policy = ""
+# resource "aws_s3_bucket" "site" {
+#   bucket = var.domain
+#   acl    = "public-read"
 
-  website {
-    redirect_all_requests_to = "https://${var.domain}"
-  }
-}
+#   website {
+#     index_document = "index.html"
+#     error_document = "index.html"
+#   }
+# }
+
+# resource "aws_s3_bucket" "www" {
+#   bucket = "www.${var.domain}"
+#   acl    = "private"
+#   policy = ""
+
+#   website {
+#     redirect_all_requests_to = "https://${var.domain}"
+#   }
+# }
 
 resource "aws_s3_bucket_policy" "public_read" {
-  bucket = aws_s3_bucket.site.id
+  bucket = aws_s3_bucket.my.id
   policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
@@ -29,8 +39,8 @@ resource "aws_s3_bucket_policy" "public_read" {
         Principal = "*"
         Action    = "s3:GetObject"
         Resource = [
-          aws_s3_bucket.site.arn,
-          "${aws_s3_bucket.site.arn}/*",
+          aws_s3_bucket.my.arn,
+          "${aws_s3_bucket.my.arn}/*",
         ]
       },
     ]
