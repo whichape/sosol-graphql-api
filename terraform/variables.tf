@@ -119,7 +119,7 @@ variable "aws_bucket" {
 variable "domain" {
   type        = string
   description = "The domain name to use for the sosol static site"
-  default     = "my.sosol.app"
+  default     = "sosol.app"
 }
 variable "cloudflare_email" {
   type        = string
