@@ -1,5 +1,5 @@
 # create security group
-resource "aws_security_group" "public-sg" {
+resource "aws_security_group" "public_sg" {
   name        = "public-group-default"
   description = "access to public instances"
   vpc_id      = aws_vpc.vpc.id

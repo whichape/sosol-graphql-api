@@ -7,7 +7,7 @@ output "alb_dns_name" {
 }
 
 output "jwt_secret" {
-  value = replace(random_string.sosol-secret-key.result, "\"", "")
+  value = replace(random_string.sosol_secret_key.result, "\"", "")
 }
 
 output "website_bucket_name" {

@@ -7,7 +7,7 @@ data "template_file" "task_definition_template" {
     AWS_SECRET_KEY    = var.aws_secret_key
     CLOUDWATCH_GROUP  = aws_cloudwatch_log_group.logs.name
     DATABASE_URL      = "postgresql://${aws_db_instance.rds_instance.username}:${aws_db_instance.rds_instance.password}@${aws_db_instance.rds_instance.endpoint}/${aws_db_instance.rds_instance.name}?schema=public"
-    JWT_SECRET        = replace(random_string.sosol-secret-key.result, "\"", "")
+    JWT_SECRET        = replace(random_string.sosol_secret_key.result, "\"", "")
     NODE_ENV          = var.sosol_env
     SOSOL_PORT        = var.sosol_app_port
     REPOSITORY_URL    = var.sosol_app_image
