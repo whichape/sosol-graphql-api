@@ -9,7 +9,7 @@ resource "aws_cloudwatch_log_group" "logs" {
   name              = "/fargate/service/${var.sosol_app_name}"
   retention_in_days = var.logs_retention_in_days
   tags = {
-    Environment = "dev"
+    Environment = var.sosol_env
     Application = var.sosol_app_name
   }
 }

@@ -26,7 +26,7 @@ resource "aws_alb_target_group" "target_group" {
 }
 
 # direct traffic through the ALB
-resource "aws_alb_listener" "fp-alb-listener" {
+resource "aws_alb_listener" "fp_alb_listener" {
   load_balancer_arn = aws_alb.alb.arn
   port              = 80
   protocol          = "HTTP"

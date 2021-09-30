@@ -1,6 +1,6 @@
-resource "aws_ecs_service" "sosol-service" {
+resource "aws_ecs_service" "sosol_service" {
   name                               = "sosol-app-service"
-  cluster                            = aws_ecs_cluster.fp-ecs-cluster.id
+  cluster                            = aws_ecs_cluster.fp_ecs_cluster.id
   task_definition                    = aws_ecs_task_definition.task_definition.arn
   desired_count                      = 2
   # deployment_minimum_healthy_percent = 50
@@ -26,7 +26,7 @@ resource "aws_ecs_service" "sosol-service" {
   }
 
   depends_on = [
-    aws_alb_listener.fp-alb-listener
+    aws_alb_listener.fp_alb_listener
   ]
 
   lifecycle {
