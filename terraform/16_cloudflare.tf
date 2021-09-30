@@ -14,6 +14,16 @@ resource "cloudflare_record" "site_cname" {
   proxied = true
 }
 
+resource "cloudflare_record" "api_cname" {
+  zone_id = data.cloudflare_zones.domain.zones[0].id
+  name    = "api"
+  value   = aws_alb.alb.dns_name
+  type    = "CNAME"
+
+  ttl     = 1
+  proxied = true
+}
+
 resource "cloudflare_page_rule" "https" {
   zone_id = data.cloudflare_zones.domain.zones[0].id
   target  = "*.${var.domain}/*"
