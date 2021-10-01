@@ -7,7 +7,13 @@ const { getUserId } = require("./utils");
 
 const prisma = new PrismaClient();
 
+const cors = {
+  origin: "*",
+  credentials: true
+},
+
 const server = new ApolloServer({
+  cors,
   schema,
   context: (req) => ({ ...req, prisma, getUserId }),
 });
