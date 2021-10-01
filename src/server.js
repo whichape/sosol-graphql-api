@@ -7,13 +7,9 @@ const { getUserId } = require("./utils");
 
 const prisma = new PrismaClient();
 
-const cors = {
-  origin: "*",
-  credentials: true,
-};
-
+// TODO: setup CORS more securely
 const server = new ApolloServer({
-  cors,
+  cors: false,
   schema,
   context: (req) => ({ ...req, prisma, getUserId }),
 });
