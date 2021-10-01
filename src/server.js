@@ -9,8 +9,8 @@ const prisma = new PrismaClient();
 
 const cors = {
   origin: "*",
-  credentials: true
-},
+  credentials: true,
+};
 
 const server = new ApolloServer({
   cors,
