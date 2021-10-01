@@ -7,15 +7,10 @@ const { getUserId } = require("./utils");
 
 const prisma = new PrismaClient();
 
-const cors = {
-  origin: "*",
-  credentials: true,
-};
-
 const server = new ApolloServer({
-  cors,
   schema,
   context: (req) => ({ ...req, prisma, getUserId }),
+  cors: false,
 });
 
 const PORT = process.env.SOSOL_PORT || 7777;
