@@ -3,8 +3,8 @@ resource "aws_ecs_service" "sosol_service" {
   cluster         = aws_ecs_cluster.fp_ecs_cluster.id
   task_definition = aws_ecs_task_definition.task_definition.arn
   desired_count   = 1
-  deployment_minimum_healthy_percent = 100
-  health_check_grace_period_seconds = 300
+  # deployment_minimum_healthy_percent = 100
+  # health_check_grace_period_seconds = 300
   # deployment_maximum_percent         = 200
   launch_type             = "FARGATE"
   scheduling_strategy     = "REPLICA"
