@@ -14,6 +14,7 @@
     "aws:s3:mb": "aws s3 mb s3://sosol-dev",
     "deploy:prod": "npm run docker:build && npm run tf:apply",
     "docker:bash": "docker exec -it backend_sosol-api_1 sh",
+    "docker:dev": "docker-compose up",
     "docker:build": "bash ./script/docker_deploy.sh",
     "docker:build:dev": "bash ./script/docker_dev.sh",
     "docker:prisma": "docker exec -it backend_sosol-api_1 npm run prisma:dev",
