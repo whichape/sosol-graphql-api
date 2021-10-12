@@ -1,5 +1,5 @@
 resource "aws_appautoscaling_target" "sosol_target" {
-  max_capacity       = 6
+  max_capacity       = 100
   min_capacity       = 1
   resource_id        = "service/${aws_ecs_cluster.fp_ecs_cluster.name}/${aws_ecs_service.sosol_service.name}"
   scalable_dimension = "ecs:service:DesiredCount"
