@@ -13,6 +13,7 @@
     "aws:s3:ls": "aws s3api list-buckets",
     "aws:s3:mb": "aws s3 mb s3://sosol-dev",
     "db:backup-prod": "cd ./db-backup && bash backup.sh",
+    "db:docker-restore": "cd ./db-backup && bash restore-docker-dev.sh",
     "deploy:prod": "npm run docker:build && npm run tf:apply",
     "docker:bash": "docker exec -it backend_sosol-api_1 sh",
     "docker:dev": "docker-compose up",
