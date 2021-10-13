@@ -11,7 +11,7 @@ exports.getUserId = (ctx) => {
   throw Error("You need to be authenticated.");
 };
 
-exports.getSignedS3URL = ({ file, type, expires }) => {
+exports.getSignedS3URL = async ({ file, type, expires }) => {
   AWS.config = new AWS.Config({
     accessKeyId: process.env.AWS_ACCESS_KEY_ID,
     secretAccessKey: process.env.AWS_SECRET_KEY,
@@ -21,7 +21,7 @@ exports.getSignedS3URL = ({ file, type, expires }) => {
 
   const s3 = new AWS.S3();
 
-  const signedUrl = s3.getSignedUrl("putObject", {
+  const signedUrl = await s3.getSignedUrlPromise("putObject", {
     ACL: "public-read",
     Key: file,
     Bucket: process.env.AWS_BUCKET_NAME,
