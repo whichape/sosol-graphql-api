@@ -50,3 +50,5 @@ override.tf.json
 # example: *tfplan*
 
 .idea/
+
+db-backup
