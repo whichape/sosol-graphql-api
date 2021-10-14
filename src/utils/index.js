@@ -22,11 +22,11 @@ exports.getSignedS3URL = async ({ file, type, expires }) => {
   const s3 = new AWS.S3();
 
   const signedUrl = await s3.getSignedUrlPromise("putObject", {
-    // ACL: "public-read",
+    ACL: "public-read",
     Key: file,
     Bucket: process.env.AWS_BUCKET_NAME,
     Expires: expires || 600, // S3 default is 900 seconds (15 minutes)\
-    // ContentType: type,
+    ContentType: type,
     // ContentDisposition: "inline",
   });
 
