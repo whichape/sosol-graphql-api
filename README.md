@@ -20,3 +20,7 @@ query healthCheck {
   healthCheck
 }
 ```
+
+## Prisma migrations
+
+Prisma migrations need to be run locally by setting the .env file accordingly and the running `npx prisma migrate dev` or `npx prisma migrate deploy`.
