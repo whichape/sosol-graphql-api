@@ -13,6 +13,8 @@ module.exports = {
         where: { publicAddress: args.publicAddress },
       });
 
+      console.log('************', user);
+
       if (args.signature) {
         const signatureUint8 = base58.decode(args.signature);
         const nonceUint8 = new TextEncoder().encode(user?.nonce);
@@ -52,9 +54,7 @@ module.exports = {
 
       if (!args?.handle) {
         args.handle = haikunator.haikunate();
-        const nameArr = args.handle.split("-");
-        args.firstname = nameArr[0];
-        args.lastname = nameArr[1];
+        args.consumerName = args.handle;
       }
 
       // generate a jsonwebtoken using the userid as payload

@@ -4,7 +4,7 @@ datasource pg {
 }
 
 generator client {
-  provider = "prisma-client-js"
+  provider      = "prisma-client-js"
   binaryTargets = ["native", "linux-musl"]
 }
 
@@ -15,8 +15,7 @@ model User {
   handle        String     @unique
   email         String?    @unique
   password      String?
-  firstname     String?
-  lastname      String?
+  consumerName  String?
   avatar        String?    @default("")
   coverPhoto    String?    @default("https://res.cloudinary.com/tylerdurden/image/upload/v1617334073/random/Rectangle_2_mbyujf.png")
   bio           String?    @default("")

@@ -4,8 +4,7 @@ type User {
   nonce: String!
   handle: String!
   email: String
-  firstname: String
-  lastname: String
+  consumerName: String
   avatar: String
   coverPhoto: String
   bio: String
@@ -20,7 +19,6 @@ type User {
   reactions: [Reaction!]
   files: [File!]
   # computed fields
-  fullname: String!
   isSelf: Boolean!
   isFollowing: Boolean!
   followingCount: Int!

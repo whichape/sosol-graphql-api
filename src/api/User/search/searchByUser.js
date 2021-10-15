@@ -5,8 +5,7 @@ module.exports = {
         where: {
           OR: [
             { handle: { contains: args.term } },
-            { firstname: { contains: args.term } },
-            { lastname: args.term },
+            { consumerName: { contains: args.term } },
           ],
         },
       });

@@ -1,8 +1,7 @@
 type Mutation {
   editProfile(
     handle: String
-    firstname: String
-    lastname: String
+    consumerName: String
     bio: String
     website: String
     dob: String

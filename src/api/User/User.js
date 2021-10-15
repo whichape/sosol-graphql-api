@@ -2,9 +2,6 @@ const mentionTypes = require('../../constants/mentions');
 
 module.exports = {
   User: {
-    fullname: (parent, args, ctx) => {
-      return `${parent.firstname} ${parent.lastname}`;
-    },
     isSelf: (parent, args, ctx) => {
       const userId = ctx.getUserId(ctx);
       return userId === parent.id;
