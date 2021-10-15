@@ -23,4 +23,4 @@ query healthCheck {
 
 ## Prisma migrations
 
-Prisma migrations need to be run locally by setting the .env file accordingly and the running `npx prisma migrate dev` or `npx prisma migrate deploy`.
+Prisma migrations need to be run locally by setting the .env file accordingly and then running `npx prisma migrate dev` or `npx prisma migrate deploy`. They can't be run from within docker because there aren't sufficient permissions in the container.
