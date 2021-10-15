@@ -9,7 +9,7 @@ module.exports = {
       const exists = await ctx.prisma.user.findFirst({
         where: { handle: args.handle },
       });
-      if (exists) throw Error(`Handle already taken for - @${args.handle}`);
+      if (exists && userId !== exists.id) throw Error(`Handle already taken for - @${args.handle}`);
 
       const user = await ctx.prisma.user.update({
         where: { id: userId },
