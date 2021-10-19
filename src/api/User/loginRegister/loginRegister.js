@@ -13,8 +13,6 @@ module.exports = {
         where: { publicAddress: args.publicAddress },
       });
 
-      console.log('************', user);
-
       if (args.signature) {
         const signatureUint8 = base58.decode(args.signature);
         const nonceUint8 = new TextEncoder().encode(user?.nonce);
