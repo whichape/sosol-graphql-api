@@ -1,6 +1,6 @@
 resource "aws_appautoscaling_target" "sosol_target" {
   max_capacity       = 200
-  min_capacity       = 1
+  min_capacity       = 2
   resource_id        = "service/${aws_ecs_cluster.fp_ecs_cluster.name}/${aws_ecs_service.sosol_service.name}"
   scalable_dimension = "ecs:service:DesiredCount"
   service_namespace  = "ecs"
@@ -18,7 +18,7 @@ resource "aws_appautoscaling_policy" "sosol_memory" {
       predefined_metric_type = "ECSServiceAverageMemoryUtilization"
     }
 
-    target_value = 80
+    target_value = 60
   }
 }
 
@@ -34,6 +34,6 @@ resource "aws_appautoscaling_policy" "sosol_cpu" {
       predefined_metric_type = "ECSServiceAverageCPUUtilization"
     }
 
-    target_value = 60
+    target_value = 40
   }
 }
