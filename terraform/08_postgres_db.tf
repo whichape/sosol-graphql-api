@@ -16,13 +16,13 @@ resource "aws_db_instance" "rds_instance" {
   parameter_group_name        = "default.postgres12"
   db_subnet_group_name        = aws_db_subnet_group.db_subnet_group.name # id
   publicly_accessible         = true                                     # true(if required)
-  allow_major_version_upgrade = false
-  auto_minor_version_upgrade  = false
+  allow_major_version_upgrade = true
+  auto_minor_version_upgrade  = true
   apply_immediately           = true
   storage_encrypted           = false
   skip_final_snapshot         = true
   final_snapshot_identifier   = var.rds_final_snapshot_identifier
-  # deletion_protection = false
+  deletion_protection         = true
   # enabled_cloudwatch_logs_exports = ["postgresql", "upgrade"]
   ## disable backups to create DB faster
   # maintenance_window = "sun:09:00-sun:10:00"
