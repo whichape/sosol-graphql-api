@@ -4,6 +4,7 @@ services:
 
   sosol-api:
     restart: always
+    container_name: backend_sosol-api_1
     build: .
     environment:
       - NODE_ENV=development
@@ -19,6 +20,7 @@ services:
 
   postgres:
     image: postgres:12.4
+    container_name: backend_postgres_1
     ports:
       - 5432:5432
     volumes:
@@ -29,6 +31,3 @@ services:
       POSTGRES_DB: sosol_dev
     restart: unless-stopped
 
-networks:
-  default:
-    name: sosol
