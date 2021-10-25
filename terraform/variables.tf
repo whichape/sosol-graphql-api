@@ -31,7 +31,7 @@ variable "postgres_db_port" {
 }
 variable "rds_instance_type" {
   description = "Instance type for the RDS database"
-  default     = "db.t3.micro"
+  default     = "db.t3.xlarge"
 }
 # Change database-1 to postgres
 variable "rds_identifier" {
